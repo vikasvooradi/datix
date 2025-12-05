@@ -18,6 +18,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0596-classes-with-at-least-5-students](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0596-classes-with-at-least-5-students) |
 | [0607-sales-person](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0607-sales-person) |
 | [0610-triangle-judgement](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0610-triangle-judgement) |
+| [0619-biggest-single-number](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0619-biggest-single-number) |
 | [0627-swap-sex-of-employees](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0627-swap-sex-of-employees) |
 | [3436-find-valid-emails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3436-find-valid-emails) |
 <!---LeetCode Topics End-->
