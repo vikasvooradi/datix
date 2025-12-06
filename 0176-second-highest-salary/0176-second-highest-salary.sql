@@ -1,5 +1,6 @@
 /* Write your PL/SQL query statement below */
 
+/* Method 1 
 
 SELECT (
     SELECT salary
@@ -11,3 +12,14 @@ SELECT (
     WHERE rnk = 2
 ) AS SecondHighestSalary
 FROM dual;
+
+*/
+
+-- Method 2 
+select max(salary) as SecondHighestSalary
+from Employee
+where salary < (select max(salary) from Employee)
+
+
+
+
