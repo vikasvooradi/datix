@@ -24,5 +24,6 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0627-swap-sex-of-employees](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0627-swap-sex-of-employees) |
 | [1050-actors-and-directors-who-cooperated-at-least-three-times](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1050-actors-and-directors-who-cooperated-at-least-three-times) |
 | [1075-project-employees-i](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1075-project-employees-i) |
+| [2356-number-of-unique-subjects-taught-by-each-teacher](https://github.com/vikasvooradi/leetcode-oracle/tree/master/2356-number-of-unique-subjects-taught-by-each-teacher) |
 | [3436-find-valid-emails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3436-find-valid-emails) |
 <!---LeetCode Topics End-->
