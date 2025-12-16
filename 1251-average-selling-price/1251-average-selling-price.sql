@@ -1,5 +1,6 @@
 /* Write your PL/SQL query statement below */
 
+/*
 -- Method 1 
 
 SELECT
@@ -17,7 +18,9 @@ LEFT JOIN unitssold u
 GROUP BY p.product_id
 ORDER BY p.product_id;
 
-/* Method 2 
+*/
+
+-- Method 2 
 
 WITH data AS (
     SELECT 
@@ -28,26 +31,34 @@ WITH data AS (
         u.purchase_date,
         u.units
     FROM prices p
-    LEFT JOIN unitssold u                 -- FIX 1: LEFT JOIN keeps products even if UnitsSold is empty
+    LEFT JOIN unitssold u
         ON p.product_id = u.product_id
+        -- LEFT JOIN:
+        -- Keeps all price rows even if there is no matching sale
+        -- If no sale exists, purchase_date and units become NULL
 ),
 
 cal AS (
     SELECT 
         product_id,
         price,
-        NVL(units,0) AS units,            -- FIX 2: convert NULL units to 0
-        NVL(price,0) * NVL(units,0) 
-            AS sum_cal
+        NVL(units,0) AS units,
+        -- Convert NULL units (no sale) to 0
+
+        NVL(price,0) * NVL(units,0) AS sum_cal
+        -- Revenue per row = price × units
     FROM data
     WHERE purchase_date BETWEEN start_date AND end_date
-       OR purchase_date IS NULL           -- FIX 3: prevents row loss when UnitsSold is empty
+       OR purchase_date IS NULL
+       -- Keeps only sales that happened within the price period
+       -- OR keeps rows with no sales (NULL purchase_date)
 ),
 
 tprice AS (
     SELECT 
         product_id,
         SUM(sum_cal) AS tprice
+        -- Total revenue per product
     FROM cal
     GROUP BY product_id
 ),
@@ -56,21 +67,34 @@ overall_sum AS (
     SELECT 
         product_id,
         SUM(units) AS osum
+        -- Total units sold per product
     FROM unitssold
     GROUP BY product_id
 )
 
 SELECT 
     p.product_id,
+
     ROUND(
-        NVL(t.tprice,0) / NVL(o.osum,1),  -- FIX 4: avoid NULL / NULL → return 0 instead
+        NVL(
+            t.tprice / NULLIF(o.osum, 0),
+            0
+        ),
         2
     ) AS average_price
+    -- NULLIF avoids division by zero
+    -- NVL returns 0 when there are no sales
+
 FROM prices p
-LEFT JOIN tprice t                       -- FIX 5: LEFT JOIN ensures all products appear
+LEFT JOIN tprice t
        ON p.product_id = t.product_id
-LEFT JOIN overall_sum o                  -- FIX 6: LEFT JOIN keeps rows when no sales exist
+       -- Join revenue per product
+LEFT JOIN overall_sum o
        ON p.product_id = o.product_id
+       -- Join total units per product
+GROUP BY p.product_id, t.tprice, o.osum
+       -- Removes duplicates caused by multiple price rows
 ORDER BY p.product_id;
 
-*/
+
+
