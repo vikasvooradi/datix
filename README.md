@@ -42,6 +42,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1251-average-selling-price](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1251-average-selling-price) |
 | [1280-students-and-examinations](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1280-students-and-examinations) |
 | [1327-list-the-products-ordered-in-a-period](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1327-list-the-products-ordered-in-a-period) |
+| [1407-top-travellers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1407-top-travellers) |
 | [2356-number-of-unique-subjects-taught-by-each-teacher](https://github.com/vikasvooradi/leetcode-oracle/tree/master/2356-number-of-unique-subjects-taught-by-each-teacher) |
 | [3436-find-valid-emails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3436-find-valid-emails) |
 | [3465-find-products-with-valid-serial-numbers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3465-find-products-with-valid-serial-numbers) |
