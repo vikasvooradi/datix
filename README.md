@@ -49,6 +49,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1484-group-sold-products-by-the-date](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1484-group-sold-products-by-the-date) |
 | [1517-find-users-with-valid-e-mails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1517-find-users-with-valid-e-mails) |
 | [1667-fix-names-in-a-table](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1667-fix-names-in-a-table) |
+| [1729-find-followers-count](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1729-find-followers-count) |
 | [1965-employees-with-missing-information](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1965-employees-with-missing-information) |
 | [1978-employees-whose-manager-left-the-company](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1978-employees-whose-manager-left-the-company) |
 | [2356-number-of-unique-subjects-taught-by-each-teacher](https://github.com/vikasvooradi/leetcode-oracle/tree/master/2356-number-of-unique-subjects-taught-by-each-teacher) |
