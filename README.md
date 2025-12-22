@@ -48,6 +48,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1407-top-travellers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1407-top-travellers) |
 | [1484-group-sold-products-by-the-date](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1484-group-sold-products-by-the-date) |
 | [1517-find-users-with-valid-e-mails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1517-find-users-with-valid-e-mails) |
+| [1527-patients-with-a-condition](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1527-patients-with-a-condition) |
 | [1587-bank-account-summary-ii](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1587-bank-account-summary-ii) |
 | [1667-fix-names-in-a-table](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1667-fix-names-in-a-table) |
 | [1683-invalid-tweets](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1683-invalid-tweets) |
