@@ -52,5 +52,4 @@ SELECT pur_custid AS customer_id
 FROM cal_refund_rate
 WHERE pur_custid IN (
     SELECT customer_id FROM get_user_active_30_days
-)
-ORDER BY pur_custid;
+) ORDER BY pur_custid;
