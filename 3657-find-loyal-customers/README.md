@@ -74,44 +74,33 @@ transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
 
 <p><strong>Explanation:</strong></p>
 
-<ul>
-	<li><strong>Customer 101</strong>:
+- Customer 101:
+  - Purchase transactions: 4 (IDs: 1, 2, 3, 4)
+  - Refund transactions: 0
+  - Refund rate: 0/4 = 0% (less than 20%)
+  - Active period: Jan 5 to Feb 20 = 46 days (at least 30 days)
+  - Qualifies as loyal
 
-	<ul>
-		<li>Purchase transactions: 4 (IDs: 1, 2, 3, 4)&nbsp;</li>
-		<li>Refund transactions: 0</li>
-		<li>Refund rate: 0/4 = 0% (less than 20%)&nbsp;</li>
-		<li>Active period: Jan 5 to Feb 20 = 46 days (at least 30 days)&nbsp;</li>
-		<li>Qualifies as loyal&nbsp;</li>
-	</ul>
-	</li>
-	<li><strong>Customer 102</strong>:
-	<ul>
-		<li>Purchase transactions: 3 (IDs: 5, 6, 9)&nbsp;</li>
-		<li>Refund transactions: 2 (IDs: 7, 8)</li>
-		<li>Refund rate: 2/5 = 40% (exceeds 20%)&nbsp;</li>
-		<li>Not loyal&nbsp;</li>
-	</ul>
-	</li>
-	<li><strong>Customer 103</strong>:
-	<ul>
-		<li>Purchase transactions: 3 (IDs: 10, 11, 12)&nbsp;</li>
-		<li>Refund transactions: 0</li>
-		<li>Refund rate: 0/3 = 0% (less than 20%)&nbsp;</li>
-		<li>Active period: Jan 1 to Jan 3 = 2 days (less than 30 days)&nbsp;</li>
-		<li>Not loyal&nbsp;</li>
-	</ul>
-	</li>
-	<li><strong>Customer 104</strong>:
-	<ul>
-		<li>Purchase transactions: 5 (IDs: 13, 14, 15, 16, 17)&nbsp;</li>
-		<li>Refund transactions: 1 (ID: 18)</li>
-		<li>Refund rate: 1/6 = 16.67% (less than 20%)&nbsp;</li>
-		<li>Active period: Jan 1 to Mar 15 = 73 days (at least 30 days)&nbsp;</li>
-		<li>Qualifies as loyal&nbsp;</li>
-	</ul>
-	</li>
-</ul>
+- Customer 102:
+  - Purchase transactions: 3 (IDs: 5, 6, 9)
+  - Refund transactions: 2 (IDs: 7, 8)
+  - Refund rate: 2/5 = 40% (exceeds 20%)
+  - Not loyal
 
-<p>The result table is ordered by customer_id in ascending order.</p>
-</div>
+- Customer 103:
+  - Purchase transactions: 3 (IDs: 10, 11, 12)
+  - Refund transactions: 0
+  - Refund rate: 0/3 = 0% (less than 20%)
+  - Active period: Jan 1 to Jan 3 = 2 days (less than 30 days)
+  - Not loyal
+
+- Customer 104:
+  - Purchase transactions: 5 (IDs: 13, 14, 15, 16, 17)
+  - Refund transactions: 1 (ID: 18)
+  - Refund rate: 1/6 = 16.67% (less than 20%)
+  - Active period: Jan 1 to Mar 15 = 73 days (at least 30 days)
+  - Qualifies as loyal
+
+The result table is ordered by customer_id in ascending order.
+
+
