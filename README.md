@@ -60,6 +60,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1741-find-total-time-spent-by-each-employee](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1741-find-total-time-spent-by-each-employee) |
 | [1757-recyclable-and-low-fat-products](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1757-recyclable-and-low-fat-products) |
 | [1789-primary-department-for-each-employee](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1789-primary-department-for-each-employee) |
+| [1795-rearrange-products-table](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1795-rearrange-products-table) |
 | [1873-calculate-special-bonus](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1873-calculate-special-bonus) |
 | [1890-the-latest-login-in-2020](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1890-the-latest-login-in-2020) |
 | [1965-employees-with-missing-information](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1965-employees-with-missing-information) |
