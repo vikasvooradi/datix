@@ -31,6 +31,7 @@ Final Output: 2 rows (Books 1,3) ✓
 
 */
 
+-- Method 1 
 
 WITH 
 -- STEP 1: Filter books with 5+ sessions
@@ -64,6 +65,46 @@ FROM book_stats
 WHERE max_rating >= 4 
   AND min_rating <= 2 
   AND extreme_count * 1.0 / total_sessions >= 0.6
+ORDER BY polarization_score DESC, TITLE DESC;
+
+
+-- Method 2 
+
+WITH data AS (
+    SELECT 
+        books.BOOK_ID,
+        books.TITLE,
+        books.AUTHOR,
+        books.GENRE,
+        books.PAGES,
+        reading_sessions.session_rating,
+        COUNT(*) OVER(PARTITION BY books.BOOK_ID) AS total_session_count
+    FROM books 
+    JOIN reading_sessions ON books.BOOK_ID = reading_sessions.BOOK_ID
+    WHERE books.BOOK_ID IN (
+        SELECT rs.book_id 
+        FROM reading_sessions rs 
+        GROUP BY rs.book_id 
+        HAVING COUNT(*) >= 5
+    )
+),
+extreme_stats AS (
+    SELECT 
+        BOOK_ID, TITLE, AUTHOR, GENRE, PAGES, total_session_count,
+        COUNT(*) AS extreme_count,
+        MAX(session_rating) AS max_rating,
+        MIN(session_rating) AS min_rating
+    FROM data 
+    WHERE session_rating <= 2 OR session_rating >= 4
+    GROUP BY BOOK_ID, TITLE, AUTHOR, GENRE, PAGES, total_session_count
+    HAVING MAX(session_rating) >= 4 AND MIN(session_rating) <= 2
+)
+SELECT 
+    BOOK_ID, TITLE, AUTHOR, GENRE, PAGES,
+    (max_rating - min_rating) AS rating_spread,
+    ROUND(extreme_count * 1.0 / total_session_count, 2) AS polarization_score
+FROM extreme_stats 
+WHERE extreme_count * 1.0 / total_session_count >= 0.6
 ORDER BY polarization_score DESC, TITLE DESC;
 
 
