@@ -72,4 +72,5 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [3465-find-products-with-valid-serial-numbers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3465-find-products-with-valid-serial-numbers) |
 | [3570-find-books-with-no-available-copies](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3570-find-books-with-no-available-copies) |
 | [3657-find-loyal-customers](https://github.com/vikasvooradi/leetcode-oracle/tree/main/3657-find-loyal-customers) |
+| [3642-find-books-with-polarized-opinions](https://github.com/vikasvooradi/leetcode-oracle/tree/main/3642-find-books-with-polarized-opinions) |
 <!---LeetCode Topics End-->
