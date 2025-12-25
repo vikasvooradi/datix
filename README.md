@@ -46,6 +46,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1280-students-and-examinations](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1280-students-and-examinations) |
 | [1327-list-the-products-ordered-in-a-period](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1327-list-the-products-ordered-in-a-period) |
 | [1378-replace-employee-id-with-the-unique-identifier](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1378-replace-employee-id-with-the-unique-identifier) |
+| [1393-capital-gainloss](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1393-capital-gainloss) |
 | [1407-top-travellers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1407-top-travellers) |
 | [1484-group-sold-products-by-the-date](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1484-group-sold-products-by-the-date) |
 | [1517-find-users-with-valid-e-mails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/1517-find-users-with-valid-e-mails) |
@@ -71,6 +72,6 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [3436-find-valid-emails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3436-find-valid-emails) |
 | [3465-find-products-with-valid-serial-numbers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3465-find-products-with-valid-serial-numbers) |
 | [3570-find-books-with-no-available-copies](https://github.com/vikasvooradi/leetcode-oracle/tree/master/3570-find-books-with-no-available-copies) |
-| [3657-find-loyal-customers](https://github.com/vikasvooradi/leetcode-oracle/tree/main/3657-find-loyal-customers) |
 | [3642-find-books-with-polarized-opinions](https://github.com/vikasvooradi/leetcode-oracle/tree/main/3642-find-books-with-polarized-opinions) |
+| [3657-find-loyal-customers](https://github.com/vikasvooradi/leetcode-oracle/tree/main/3657-find-loyal-customers) |
 <!---LeetCode Topics End-->
