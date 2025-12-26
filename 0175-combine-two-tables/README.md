@@ -12,8 +12,6 @@ personId is the primary key (column with unique values) for this table.
 This table contains information about the ID of some persons and their first and last names.
 </pre>
 
-<p>&nbsp;</p>
-
 <p>Table: <code>Address</code></p>
 
 <pre>
@@ -29,15 +27,12 @@ addressId is the primary key (column with unique values) for this table.
 Each row of this table contains information about the city and state of one person with ID = PersonId.
 </pre>
 
-<p>&nbsp;</p>
-
 <p>Write a solution to report the first name, last name, city, and state of each person in the <code>Person</code> table. If the address of a <code>personId</code> is not present in the <code>Address</code> table, report <code>null</code> instead.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
 <p>The result format is in the following example.</p>
 
-<p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
