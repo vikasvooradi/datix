@@ -6,3 +6,4 @@ select
     a.city as city,
     a.state as state 
 from person p left join address a on p.personid=a.personid;
+
