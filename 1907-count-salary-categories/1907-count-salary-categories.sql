@@ -1,4 +1,6 @@
-/* Write your PL/SQL query statement below */WITH category AS (
+/* Write your PL/SQL query statement below */
+
+WITH category AS (
     SELECT
         'Low Salary' AS category,
         0            AS accounts_count
