@@ -1,106 +1,97 @@
-<h2><a href="https://leetcode.com/problems/find-loyal-customers">4025. Find Loyal Customers</a></h2><h3>Medium</h3><hr><p>Table: <code>customer_transactions</code></p>
+<h2>Table: customer_transactions</h2>
 
-<pre>
-+------------------+---------+
-| Column Name      | Type    | 
-+------------------+---------+
-| transaction_id   | int     |
-| customer_id      | int     |
-| transaction_date | date    |
-| amount           | decimal |
-| transaction_type | varchar |
-+------------------+---------+
-transaction_id is the unique identifier for this table.
-transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
-</pre>
+<table>
+  <tr>
+    <th>Column Name</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>transaction_id</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>customer_id</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>transaction_date</td>
+    <td>date</td>
+  </tr>
+  <tr>
+    <td>amount</td>
+    <td>decimal</td>
+  </tr>
+  <tr>
+    <td>transaction_type</td>
+    <td>varchar</td>
+  </tr>
+</table>
 
-<p>Write a solution to find <strong>loyal customers</strong>. A customer is considered <strong>loyal</strong> if they meet ALL the following criteria:</p>
+<p>transaction_id is the unique identifier for this table.</p>
+<p>transaction_type can be either 'purchase' or 'refund'.</p>
 
+<h3>Task</h3>
+<p>
+Find loyal customers. A customer is considered loyal if they satisfy all of the following:
+</p>
 <ul>
-	<li>Made <strong>at least</strong>&nbsp;<code><font face="monospace">3</font></code>&nbsp;purchase transactions.</li>
-	<li>Have been active for <strong>at least</strong> <code>30</code> days.</li>
-	<li>Their <strong>refund rate</strong> is less than <code>20%</code> .</li>
+  <li>They have at least 3 purchase transactions.</li>
+  <li>Their activity period (from first to last transaction) is at least 30 days.</li>
+  <li>Their refund rate is less than 20%.</li>
 </ul>
 
-<p><em>Refund rate</em> is the proportion of transactions that are refunds, calculated as the number of refund transactions divided by the total number of transactions (purchases plus refunds).</p>
+<p>
+Refund rate is the number of refund transactions divided by the total number of transactions
+(purchases plus refunds).
+</p>
+<p>
+Return the result with customer_id sorted in ascending order.
+</p>
 
-<p>Return <em>the result table&nbsp;ordered by</em> <code>customer_id</code> <em>in <strong>ascending</strong> order</em>.</p>
+<h3>Example Input</h3>
 
-<p>The result format is in the following example.</p>
+<table>
+  <tr>
+    <th>transaction_id</th>
+    <th>customer_id</th>
+    <th>transaction_date</th>
+    <th>amount</th>
+    <th>transaction_type</th>
+  </tr>
+  <tr><td>1</td><td>101</td><td>2024-01-05</td><td>150.00</td><td>purchase</td></tr>
+  <tr><td>2</td><td>101</td><td>2024-01-15</td><td>200.00</td><td>purchase</td></tr>
+  <tr><td>3</td><td>101</td><td>2024-02-10</td><td>180.00</td><td>purchase</td></tr>
+  <tr><td>4</td><td>101</td><td>2024-02-20</td><td>250.00</td><td>purchase</td></tr>
+  <tr><td>5</td><td>102</td><td>2024-01-10</td><td>100.00</td><td>purchase</td></tr>
+  <tr><td>6</td><td>102</td><td>2024-01-12</td><td>120.00</td><td>purchase</td></tr>
+  <tr><td>7</td><td>102</td><td>2024-01-15</td><td>80.00</td><td>refund</td></tr>
+  <tr><td>8</td><td>102</td><td>2024-01-18</td><td>90.00</td><td>refund</td></tr>
+  <tr><td>9</td><td>102</td><td>2024-02-15</td><td>130.00</td><td>purchase</td></tr>
+  <tr><td>10</td><td>103</td><td>2024-01-01</td><td>500.00</td><td>purchase</td></tr>
+  <tr><td>11</td><td>103</td><td>2024-01-02</td><td>450.00</td><td>purchase</td></tr>
+  <tr><td>12</td><td>103</td><td>2024-01-03</td><td>400.00</td><td>purchase</td></tr>
+  <tr><td>13</td><td>104</td><td>2024-01-01</td><td>200.00</td><td>purchase</td></tr>
+  <tr><td>14</td><td>104</td><td>2024-02-01</td><td>250.00</td><td>purchase</td></tr>
+  <tr><td>15</td><td>104</td><td>2024-02-15</td><td>300.00</td><td>purchase</td></tr>
+  <tr><td>16</td><td>104</td><td>2024-03-01</td><td>350.00</td><td>purchase</td></tr>
+  <tr><td>17</td><td>104</td><td>2024-03-10</td><td>280.00</td><td>purchase</td></tr>
+  <tr><td>18</td><td>104</td><td>2024-03-15</td><td>100.00</td><td>refund</td></tr>
+</table>
 
-<p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+<h3>Example Output</h3>
 
-<div class="example-block">
-<p><strong>Input:</strong></p>
+<table>
+  <tr>
+    <th>customer_id</th>
+  </tr>
+  <tr><td>101</td></tr>
+  <tr><td>104</td></tr>
+</table>
 
-<p>customer_transactions table:</p>
-
-<pre class="example-io">
-+----------------+-------------+------------------+--------+------------------+
-| transaction_id | customer_id | transaction_date | amount | transaction_type |
-+----------------+-------------+------------------+--------+------------------+
-| 1              | 101         | 2024-01-05       | 150.00 | purchase         |
-| 2              | 101         | 2024-01-15       | 200.00 | purchase         |
-| 3              | 101         | 2024-02-10       | 180.00 | purchase         |
-| 4              | 101         | 2024-02-20       | 250.00 | purchase         |
-| 5              | 102         | 2024-01-10       | 100.00 | purchase         |
-| 6              | 102         | 2024-01-12       | 120.00 | purchase         |
-| 7              | 102         | 2024-01-15       | 80.00  | refund           |
-| 8              | 102         | 2024-01-18       | 90.00  | refund           |
-| 9              | 102         | 2024-02-15       | 130.00 | purchase         |
-| 10             | 103         | 2024-01-01       | 500.00 | purchase         |
-| 11             | 103         | 2024-01-02       | 450.00 | purchase         |
-| 12             | 103         | 2024-01-03       | 400.00 | purchase         |
-| 13             | 104         | 2024-01-01       | 200.00 | purchase         |
-| 14             | 104         | 2024-02-01       | 250.00 | purchase         |
-| 15             | 104         | 2024-02-15       | 300.00 | purchase         |
-| 16             | 104         | 2024-03-01       | 350.00 | purchase         |
-| 17             | 104         | 2024-03-10       | 280.00 | purchase         |
-| 18             | 104         | 2024-03-15       | 100.00 | refund           |
-+----------------+-------------+------------------+--------+------------------+
-</pre>
-
-<p><strong>Output:</strong></p>
-
-<pre class="example-io">
-+-------------+
-| customer_id |
-+-------------+
-| 101         |
-| 104         |
-+-------------+
-</pre>
-
-<p><strong>Explanation:</strong></p>
-
-- Customer 101:
-  - Purchase transactions: 4 (IDs: 1, 2, 3, 4)
-  - Refund transactions: 0
-  - Refund rate: 0/4 = 0% (less than 20%)
-  - Active period: Jan 5 to Feb 20 = 46 days (at least 30 days)
-  - Qualifies as loyal
-
-- Customer 102:
-  - Purchase transactions: 3 (IDs: 5, 6, 9)
-  - Refund transactions: 2 (IDs: 7, 8)
-  - Refund rate: 2/5 = 40% (exceeds 20%)
-  - Not loyal
-
-- Customer 103:
-  - Purchase transactions: 3 (IDs: 10, 11, 12)
-  - Refund transactions: 0
-  - Refund rate: 0/3 = 0% (less than 20%)
-  - Active period: Jan 1 to Jan 3 = 2 days (less than 30 days)
-  - Not loyal
-
-- Customer 104:
-  - Purchase transactions: 5 (IDs: 13, 14, 15, 16, 17)
-  - Refund transactions: 1 (ID: 18)
-  - Refund rate: 1/6 = 16.67% (less than 20%)
-  - Active period: Jan 1 to Mar 15 = 73 days (at least 30 days)
-  - Qualifies as loyal
-
-The result table is ordered by customer_id in ascending order.
-
-
+<h3>Explanation</h3>
+<ul>
+  <li>Customer 101: 4 purchases, 0 refunds, refund rate 0%, active from 2024-01-05 to 2024-02-20 (46 days) → loyal.</li>
+  <li>Customer 102: 3 purchases, 2 refunds, refund rate 40% → not loyal.</li>
+  <li>Customer 103: 3 purchases, 0 refunds, active from 2024-01-01 to 2024-01-03 (2 days) → not loyal.</li>
+  <li>Customer 104: 5 purchases, 1 refund, refund rate about 16.67%, active from 2024-01-01 to 2024-03-15 (73 days) → loyal.</li>
+</ul>
