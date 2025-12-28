@@ -1,14 +1,5 @@
-<div class="problem-statement">
-  <h2 class="problem-title">Merge Customer and Location Data</h2>
-  <span class="difficulty-badge">Easy</span>
-  
-  <div class="problem-description">
-    <p>You are given two database tables containing customer and location information.</p>
-    
-    <h3>Table Schema</h3>
-    
-    <p>Table: <code>Customer</code></p>
-    <pre>
+<h2><a href="https://leetcode.com/problems/merge-customer-location-data">247. Merge Customer and Location Data</a></h2><h3>Easy</h3><hr><p>Table: <code>Customer</code></p>
+<pre>
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -16,12 +7,11 @@
 | surname     | varchar |
 | givenName   | varchar |
 +-------------+---------+
-customerId serves as the primary key (unique identifier) for this table.
-This table stores the unique identifier and full name details for various customers.
-    </pre>
-    
-    <p>Table: <code>Location</code></p>
-    <pre>
+customerId is the primary key (column with unique values) for this table.
+This table contains information about the ID of some customers and their given and surnames.
+</pre>
+<p>Table: <code>Location</code></p>
+<pre>
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -30,53 +20,37 @@ This table stores the unique identifier and full name details for various custom
 | cityName    | varchar |
 | region      | varchar |
 +-------------+---------+
-locationId serves as the primary key (unique identifier) for this table.
-Each record in this table contains the city and region information for a customer identified by customerId.
-    </pre>
-    
-    <h3>Task</h3>
-    <p>Create a query that retrieves the given name, surname, city name, and region for every customer in the <code>Customer</code> table. When a customer's location data is missing from the <code>Location</code> table, display <code>null</code> for the city and region fields.</p>
-    
-    <p>The output can be returned in <strong>any sequence</strong>.</p>
-    
-    <p>The expected output format is demonstrated below.</p>
-    
-    <h3>Example 1</h3>
-    <div class="example">
-      <strong>Input:</strong>
-      
-      <p>Customer table:</p>
-      <pre>
+locationId is the primary key (column with unique values) for this table.
+Each row of this table contains information about the city name and region of one customer with ID = customerId.
+</pre>
+<p>Write a solution to report the given name, surname, city name, and region of each customer in the <code>Customer</code> table. If the location of a <code>customerId</code> is not present in the <code>Location</code> table, report <code>null</code> instead.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+<p>The result format is in the following example.</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre>
+<strong>Input:</strong> 
+Customer table:
 +------------+---------+-----------+
 | customerId | surname | givenName |
 +------------+---------+-----------+
 | 101        | Smith   | James     |
-| 102        | Johnson | Maria     |
+| 102        | Davis   | Emma      |
 +------------+---------+-----------+
-      </pre>
-      
-      <p>Location table:</p>
-      <pre>
+Location table:
 +------------+------------+-------------+----------+
 | locationId | customerId | cityName    | region   |
 +------------+------------+-------------+----------+
 | 5001       | 102        | Los Angeles | Texas    |
 | 5002       | 103        | Portland    | Oregon   |
 +------------+------------+-------------+----------+
-      </pre>
-      
-      <strong>Output:</strong>
-      <pre>
+<strong>Output:</strong> 
 +-----------+---------+-------------+--------+
 | givenName | surname | cityName    | region |
 +-----------+---------+-------------+--------+
 | James     | Smith   | Null        | Null   |
-| Maria     | Johnson | Los Angeles | Texas  |
+| Emma      | Davis   | Los Angeles | Texas  |
 +-----------+---------+-------------+--------+
-      </pre>
-      
-      <strong>Explanation:</strong>
-      <p>Customer with customerId = 101 has no corresponding entry in the Location table, therefore null values are returned for their cityName and region columns. The record with locationId = 5001 provides the location details for customerId = 102.</p>
-    </div>
-  </div>
-</div>
+<strong>Explanation:</strong> 
+There is no location in the location table for the customerId = 101 so we return null in their city name and region.
+locationId = 5001 contains information about the location of customerId = 102.
+</pre>
