@@ -3,11 +3,11 @@
 /* Method 1 
 
 SELECT (
-    SELECT salary
+    SELECT payamount
     FROM (
-        SELECT DISTINCT salary,
-               DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
-        FROM employee
+        SELECT DISTINCT payamount,
+               DENSE_RANK() OVER (ORDER BY payamount DESC) AS rnk
+        FROM worker
     )
     WHERE rnk = 2
 ) AS SecondHighestSalary
@@ -16,10 +16,15 @@ FROM dual;
 */
 
 -- Method 2 
-select max(salary) as SecondHighestSalary
-from Employee
-where salary < (select max(salary) from Employee)
-
-
-
-
+SELECT
+    MAX(payamount) AS secondhighestsalary
+FROM
+    worker
+WHERE
+    payamount < (
+        SELECT
+            MAX(payamount)
+        FROM
+            worker
+    );
+    
