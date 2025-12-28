@@ -1,9 +1,13 @@
 /* Write your PL/SQL query statement below */
 
-select 
-    p.firstname as firstname,
-    p.lastname as lastname,
-    a.city as city,
-    a.state as state 
-from person p left join address a on p.personid=a.personid;
+SELECT
+    p.givenname AS givenname,
+    p.surname   AS surname,
+    a.cityname  AS cityname,
+    a.region    AS region
+FROM
+    customer p
+    LEFT JOIN location a ON p.customerid = a.customerid
+ORDER BY
+    p.givenname;
 
