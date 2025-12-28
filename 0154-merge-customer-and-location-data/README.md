@@ -1,4 +1,4 @@
-<h2><a href="https://github.com/vikasvooradi/datix/tree/main/0175-combine-two-tables">Merge Customer and Location Data</a></h2><h3>Easy</h3><hr><p>You are given two database tables containing customer and location information.</p>
+<h2><a href="https://github.com/vikasvooradi/datix/tree/main/0154-merge-customer-and-location-data">Merge Customer and Location Data</a></h2><h3>Easy</h3><hr><p>You are given two database tables containing customer and location information.</p>
 
 <h3>Table Schema</h3>
 
