@@ -1,59 +1,51 @@
-<h2><a href="https://leetcode.com/problems/nth-highest-salary">177. Nth Highest Salary</a></h2><h3>Medium</h3><hr><p>Table: <code>Employee</code></p>
-
+<h2><a href="">Kth Largest Score Retrieval</a></h2><h3>Medium</h3><hr><p>Table: <code>Competitor</code></p>
 <pre>
 +-------------+------+
 | Column Name | Type |
 +-------------+------+
-| id          | int  |
-| salary      | int  |
+| playerId    | int  |
+| points      | int  |
 +-------------+------+
-id is the primary key (column with unique values) for this table.
-Each row of this table contains information about the salary of an employee.
+playerId is the primary key (column with unique values) for this table.
+Each row of this table represents the total points earned by a competitor.
 </pre>
-
 <p>&nbsp;</p>
-
-<p>Write a solution to find the <code>n<sup>th</sup></code> highest <strong>distinct</strong> salary from the <code>Employee</code> table. If there are less than <code>n</code> distinct salaries, return&nbsp;<code>null</code>.</p>
-
+<p>Develop a query to retrieve the <code>k<sup>th</sup></code> largest <strong>unique</strong> points value from the <code>Competitor</code> table. When fewer than <code>k</code> unique points values exist, the query should return&nbsp;<code>null</code>.</p>
 <p>The result format is in the following example.</p>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-
 <pre>
 <strong>Input:</strong> 
-Employee table:
-+----+--------+
-| id | salary |
-+----+--------+
-| 1  | 100    |
-| 2  | 200    |
-| 3  | 300    |
-+----+--------+
-n = 2
+Competitor table:
++----------+--------+
+| playerId | points |
++----------+--------+
+| 401      | 8500   |
+| 402      | 12000  |
+| 403      | 15500  |
++----------+--------+
+k = 2
 <strong>Output:</strong> 
-+------------------------+
-| getNthHighestSalary(2) |
-+------------------------+
-| 200                    |
-+------------------------+
++----------------------+
+| getKthLargestScore(2)|
++----------------------+
+| 12000                |
++----------------------+
 </pre>
-
 <p><strong class="example">Example 2:</strong></p>
-
 <pre>
 <strong>Input:</strong> 
-Employee table:
-+----+--------+
-| id | salary |
-+----+--------+
-| 1  | 100    |
-+----+--------+
-n = 2
+Competitor table:
++----------+--------+
+| playerId | points |
++----------+--------+
+| 401      | 8500   |
++----------+--------+
+k = 2
 <strong>Output:</strong> 
-+------------------------+
-| getNthHighestSalary(2) |
-+------------------------+
-| null                   |
-+------------------------+
++----------------------+
+| getKthLargestScore(2)|
++----------------------+
+| null                 |
++----------------------+
 </pre>
