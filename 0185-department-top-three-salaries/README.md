@@ -1,94 +1,80 @@
-<h2><a href="https://leetcode.com/problems/department-top-three-salaries">185. Department Top Three Salaries</a></h2><h3>Hard</h3><hr><p>Table: <code>Employee</code></p>
-
+<h2><a href="https://leetcode.com/problems/department-top-three-salaries">185. Division Leading Three Compensations</a></h2><h3>Hard</h3><hr><p>Table: <code>Staff</code></p>
 <pre>
 +--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
-| id           | int     |
-| name         | varchar |
-| salary       | int     |
-| departmentId | int     |
+| staffId      | int     |
+| fullName     | varchar |
+| compensation | int     |
+| divisionId   | int     |
 +--------------+---------+
-id is the primary key (column with unique values) for this table.
-departmentId is a foreign key (reference column) of the ID from the <code>Department </code>table.
-Each row of this table indicates the ID, name, and salary of an employee. It also contains the ID of their department.
+staffId serves as the primary key (column with unique values) for this table.
+divisionId is a foreign key (reference column) of the divisionId from the <code>Division </code>table.
+Each row of this table represents the ID, full name, and compensation of a staff member. It also holds the ID of their division.
 </pre>
-
 <p>&nbsp;</p>
-
-<p>Table: <code>Department</code></p>
-
+<p>Table: <code>Division</code></p>
 <pre>
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
-| id          | int     |
-| name        | varchar |
+| divisionId  | int     |
+| title       | varchar |
 +-------------+---------+
-id is the primary key (column with unique values) for this table.
-Each row of this table indicates the ID of a department and its name.
+divisionId serves as the primary key (column with unique values) for this table.
+Each row of this table represents the ID of a division and its title.
 </pre>
-
 <p>&nbsp;</p>
-
-<p>A company&#39;s executives are interested in seeing who earns the most money in each of the company&#39;s departments. A <strong>high earner</strong> in a department is an employee who has a salary in the <strong>top three unique</strong> salaries for that department.</p>
-
-<p>Write a solution to find the employees who are <strong>high earners</strong> in each of the departments.</p>
-
+<p>An organization&#39;s leadership team is interested in identifying who receives the highest compensation in each of the organization&#39;s divisions. A <strong>top earner</strong> in a division is a staff member who has a compensation in the <strong>top three distinct</strong> compensation levels for that division.</p>
+<p>Create a query to identify the staff members who are <strong>top earners</strong> in each of the divisions.</p>
 <p>Return the result table <strong>in any order</strong>.</p>
-
 <p>The&nbsp;result format is in the following example.</p>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-
 <pre>
 <strong>Input:</strong> 
-Employee table:
-+----+-------+--------+--------------+
-| id | name  | salary | departmentId |
-+----+-------+--------+--------------+
-| 1  | Joe   | 85000  | 1            |
-| 2  | Henry | 80000  | 2            |
-| 3  | Sam   | 60000  | 2            |
-| 4  | Max   | 90000  | 1            |
-| 5  | Janet | 69000  | 1            |
-| 6  | Randy | 85000  | 1            |
-| 7  | Will  | 70000  | 1            |
-+----+-------+--------+--------------+
-Department table:
-+----+-------+
-| id | name  |
-+----+-------+
-| 1  | IT    |
-| 2  | Sales |
-+----+-------+
+Staff table:
++---------+----------+--------------+------------+
+| staffId | fullName | compensation | divisionId |
++---------+----------+--------------+------------+
+| 101     | Alex     | 125000       | 5          |
+| 102     | Blake    | 118000       | 7          |
+| 103     | Casey    | 95000        | 7          |
+| 104     | Drew     | 135000       | 5          |
+| 105     | Ellis    | 102000       | 5          |
+| 106     | Finley   | 125000       | 5          |
+| 107     | Gray     | 108000       | 5          |
++---------+----------+--------------+------------+
+Division table:
++------------+------------+
+| divisionId | title      |
++------------+------------+
+| 5          | Technology |
+| 7          | Marketing  |
++------------+------------+
 <strong>Output:</strong> 
-+------------+----------+--------+
-| Department | Employee | Salary |
-+------------+----------+--------+
-| IT         | Max      | 90000  |
-| IT         | Joe      | 85000  |
-| IT         | Randy    | 85000  |
-| IT         | Will     | 70000  |
-| Sales      | Henry    | 80000  |
-| Sales      | Sam      | 60000  |
-+------------+----------+--------+
++------------+----------+--------------+
+| Division   | Employee | Compensation |
++------------+----------+--------------+
+| Technology | Drew     | 135000       |
+| Technology | Alex     | 125000       |
+| Technology | Finley   | 125000       |
+| Technology | Gray     | 108000       |
+| Marketing  | Blake    | 118000       |
+| Marketing  | Casey    | 95000        |
++------------+----------+--------------+
 <strong>Explanation:</strong> 
-In the IT department:
-- Max earns the highest unique salary
-- Both Randy and Joe earn the second-highest unique salary
-- Will earns the third-highest unique salary
-
-In the Sales department:
-- Henry earns the highest salary
-- Sam earns the second-highest salary
-- There is no third-highest salary as there are only two employees
+In the Technology division:
+- Drew receives the highest distinct compensation
+- Both Finley and Alex receive the second-highest distinct compensation
+- Gray receives the third-highest distinct compensation
+In the Marketing division:
+- Blake receives the highest compensation
+- Casey receives the second-highest compensation
+- There is no third-highest compensation as there are only two staff members
 </pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
-
 <ul>
-	<li>There are no employees with the <strong>exact</strong> same name, salary <em>and</em> department.</li>
+	<li>There are no staff members with the <strong>exact</strong> same full name, compensation <em>and</em> division.</li>
 </ul>
