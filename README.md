@@ -5,19 +5,19 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0176-second-highest-salary](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0176-second-highest-salary)  : 0158-retrieve-runner-up-compensation | <br>
 | [0177-nth-highest-salary](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0177-nth-highest-salary)  : 0184-kth-largest-score-retrieval | <br>
 | [0178-rank-scores](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0178-rank-scores)  : 0123-performance-rating-assignment | <br>
+| [0180-consecutive-numbers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0180-consecutive-numbers) | <br>
+| [0181-employees-earning-more-than-their-managers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0181-employees-earning-more-than-their-managers) | <br>
+| [0182-duplicate-emails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0182-duplicate-emails) | <br>
+| [0183-customers-who-never-order](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0183-customers-who-never-order) | <br>
+| [0185-department-top-three-salaries](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0185-department-top-three-salaries) | <br>
+| [0196-delete-duplicate-emails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0196-delete-duplicate-emails) | <br>
 
 <!---LeetCode Topics Start-->
 # LeetCode Topics
 ## Database
 |  |
 | ------- |
-| [0180-consecutive-numbers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0180-consecutive-numbers) |
-| [0181-employees-earning-more-than-their-managers](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0181-employees-earning-more-than-their-managers) |
-| [0182-duplicate-emails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0182-duplicate-emails) |
-| [0183-customers-who-never-order](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0183-customers-who-never-order) |
 | [0184-department-highest-salary](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0184-department-highest-salary) |
-| [0185-department-top-three-salaries](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0185-department-top-three-salaries) |
-| [0196-delete-duplicate-emails](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0196-delete-duplicate-emails) |
 | [0197-rising-temperature](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0197-rising-temperature) |
 | [0262-trips-and-users](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0262-trips-and-users) |
 | [0511-game-play-analysis-i](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0511-game-play-analysis-i) |
