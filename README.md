@@ -1,4 +1,11 @@
 A collection of LeetCode questions to ace the coding interview! - Created using [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-2.0)
+
+## Completed : 
+| [0175-combine-two-tables](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0175-combine-two-tables)  : 0154-merge-customer-and-location-data | <br>
+| [0176-second-highest-salary](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0176-second-highest-salary)  : 0158-retrieve-runner-up-compensation | <br>
+| [0177-nth-highest-salary](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0177-nth-highest-salary)  : 0184-kth-largest-score-retrieval | <br>
+| [0178-rank-scores](https://github.com/vikasvooradi/leetcode-oracle/tree/master/0178-rank-scores)  : 0123-performance-rating-assignment | <br>
+
 <!---LeetCode Topics Start-->
 # LeetCode Topics
 ## Database
