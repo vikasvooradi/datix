@@ -1,66 +1,56 @@
-<h2><a href="https://leetcode.com/problems/customers-who-never-order">183. Customers Who Never Order</a></h2><h3>Easy</h3><hr><p>Table: <code>Customers</code></p>
-
+<h2><a href="https://leetcode.com/problems/customers-who-never-order">183. Members Without Reservations</a></h2><h3>Easy</h3><hr><p>Table: <code>Members</code></p>
 <pre>
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
-| id          | int     |
-| name        | varchar |
+| memberId    | int     |
+| fullName    | varchar |
 +-------------+---------+
-id is the primary key (column with unique values) for this table.
-Each row of this table indicates the ID and name of a customer.
+memberId serves as the primary key (column with unique values) for this table.
+Each row of this table represents the ID and full name of a member.
 </pre>
-
 <p>&nbsp;</p>
-
-<p>Table: <code>Orders</code></p>
-
+<p>Table: <code>Bookings</code></p>
 <pre>
 +-------------+------+
 | Column Name | Type |
 +-------------+------+
-| id          | int  |
-| customerId  | int  |
+| bookingId   | int  |
+| memberId    | int  |
 +-------------+------+
-id is the primary key (column with unique values) for this table.
-customerId is a foreign key (reference columns) of the ID from the Customers table.
-Each row of this table indicates the ID of an order and the ID of the customer who ordered it.
+bookingId serves as the primary key (column with unique values) for this table.
+memberId is a foreign key (reference columns) of the memberId from the Members table.
+Each row of this table represents the ID of a booking and the ID of the member who made it.
 </pre>
-
 <p>&nbsp;</p>
-
-<p>Write a solution to find all customers who never order anything.</p>
-
+<p>Create a query to identify all members who have never made any reservations.</p>
 <p>Return the result table in <strong>any order</strong>.</p>
-
 <p>The result format is in the following example.</p>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-
 <pre>
 <strong>Input:</strong> 
-Customers table:
-+----+-------+
-| id | name  |
-+----+-------+
-| 1  | Joe   |
-| 2  | Henry |
-| 3  | Sam   |
-| 4  | Max   |
-+----+-------+
-Orders table:
-+----+------------+
-| id | customerId |
-+----+------------+
-| 1  | 3          |
-| 2  | 1          |
-+----+------------+
+Members table:
++----------+----------+
+| memberId | fullName |
++----------+----------+
+| 10       | Alex     |
+| 20       | Blake    |
+| 30       | Casey    |
+| 40       | Drew     |
++----------+----------+
+Bookings table:
++-----------+----------+
+| bookingId | memberId |
++-----------+----------+
+| 101       | 30       |
+| 102       | 10       |
++-----------+----------+
 <strong>Output:</strong> 
-+-----------+
-| Customers |
-+-----------+
-| Henry     |
-| Max       |
-+-----------+
++---------+
+| Members |
++---------+
+| Blake   |
+| Drew    |
++---------+
 </pre>
