@@ -1,4 +1,4 @@
-
+/* Write your PL/SQL query statement below */
 
 CREATE FUNCTION getKthLargestScore(N IN NUMBER) RETURN NUMBER IS
 result NUMBER;
