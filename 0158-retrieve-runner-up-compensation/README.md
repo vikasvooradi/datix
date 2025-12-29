@@ -1,4 +1,4 @@
-<h2><a href="https://github.com/vikasvooradi/datix/tree/main/0158-retrieve-runner-up-compensation">Retrieve Runner-Up Compensation</a></h2><h3>Medium</h3><hr><p>Table: <code>Worker</code></p>
+<h2><a href="">Retrieve Runner-Up Compensation</a></h2><h3>Medium</h3><hr><p>Table: <code>Worker</code></p>
 
 <pre>
 +-------------+------+
