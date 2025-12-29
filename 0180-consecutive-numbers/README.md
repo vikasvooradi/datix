@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/consecutive-numbers">180. Consecutive Numbers</a></h2><h3>Medium</h3><hr><p>Table: <code>Readings</code></p>
+<h2><a href="https://leetcode.com/problems/consecutive-numbers">180. Repeating Values</a></h2><h3>Medium</h3><hr><p>Table: <code>Readings</code></p>
 <pre>
 +-------------+---------+
 | Column Name | Type    |
