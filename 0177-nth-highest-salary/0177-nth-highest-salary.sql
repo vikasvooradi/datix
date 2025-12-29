@@ -1,12 +1,14 @@
-CREATE FUNCTION getNthHighestSalary(N IN NUMBER) RETURN NUMBER IS
+
+
+CREATE FUNCTION getKthLargestScore(N IN NUMBER) RETURN NUMBER IS
 result NUMBER;
 BEGIN
     /* Write your PL/SQL query statement below */
 
     BEGIN
-        select (SELECT salary
+        select (SELECT points
         FROM (
-            select salary , row_number() over(order by salary desc) as rn from (select distinct salary from employee)
+            select points , row_number() over(order by points desc) as rn from (select distinct points from competitor)
         )
         WHERE rn = N) into result from dual;
     EXCEPTION
@@ -16,4 +18,7 @@ BEGIN
 
      RETURN result;
 END; 
+
+-- Calling 
+select getKthLargestScore(2) from dual;
 
