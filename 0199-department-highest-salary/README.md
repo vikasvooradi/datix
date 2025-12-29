@@ -1,71 +1,61 @@
-<h2><a href="https://leetcode.com/problems/department-highest-salary">199. Department Highest Salary</a></h2><h3>Medium</h3><hr><p>Table: <code>Employee</code></p>
-
+<h2><a href="https://leetcode.com/problems/department-highest-salary">199. Division Maximum Compensation</a></h2><h3>Medium</h3><hr><p>Table: <code>Staff</code></p>
 <pre>
 +--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
-| id           | int     |
-| name         | varchar |
-| salary       | int     |
-| departmentId | int     |
+| staffId      | int     |
+| fullName     | varchar |
+| compensation | int     |
+| divisionId   | int     |
 +--------------+---------+
-id is the primary key (column with unique values) for this table.
-departmentId is a foreign key (reference columns) of the ID from the <code>Department </code>table.
-Each row of this table indicates the ID, name, and salary of an employee. It also contains the ID of their department.
+staffId serves as the primary key (column with unique values) for this table.
+divisionId is a foreign key (reference columns) of the divisionId from the <code>Division </code>table.
+Each row of this table represents the ID, full name, and compensation of a staff member. It also holds the ID of their division.
 </pre>
-
 <p>&nbsp;</p>
-
-<p>Table: <code>Department</code></p>
-
+<p>Table: <code>Division</code></p>
 <pre>
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
-| id          | int     |
-| name        | varchar |
+| divisionId  | int     |
+| title       | varchar |
 +-------------+---------+
-id is the primary key (column with unique values) for this table. It is guaranteed that department name is not <code>NULL.</code>
-Each row of this table indicates the ID of a department and its name.
+divisionId serves as the primary key (column with unique values) for this table. It is guaranteed that division title is not <code>NULL.</code>
+Each row of this table represents the ID of a division and its title.
 </pre>
-
 <p>&nbsp;</p>
-
-<p>Write a solution to find employees who have the highest salary in each of the departments.</p>
-
+<p>Create a query to identify staff members who receive the maximum compensation in each of the divisions.</p>
 <p>Return the result table in <strong>any order</strong>.</p>
-
 <p>The result format is in the following example.</p>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-
 <pre>
 <strong>Input:</strong> 
-Employee table:
-+----+-------+--------+--------------+
-| id | name  | salary | departmentId |
-+----+-------+--------+--------------+
-| 1  | Joe   | 70000  | 1            |
-| 2  | Jim   | 90000  | 1            |
-| 3  | Henry | 80000  | 2            |
-| 4  | Sam   | 60000  | 2            |
-| 5  | Max   | 90000  | 1            |
-+----+-------+--------+--------------+
-Department table:
-+----+-------+
-| id | name  |
-+----+-------+
-| 1  | IT    |
-| 2  | Sales |
-+----+-------+
+Staff table:
++---------+----------+--------------+------------+
+| staffId | fullName | compensation | divisionId |
++---------+----------+--------------+------------+
+| 10      | Alex     | 105000       | 3          |
+| 20      | Blake    | 135000       | 3          |
+| 30      | Casey    | 118000       | 5          |
+| 40      | Drew     | 92000        | 5          |
+| 50      | Ellis    | 135000       | 3          |
++---------+----------+--------------+------------+
+Division table:
++------------+------------+
+| divisionId | title      |
++------------+------------+
+| 3          | Technology |
+| 5          | Marketing  |
++------------+------------+
 <strong>Output:</strong> 
-+------------+----------+--------+
-| Department | Employee | Salary |
-+------------+----------+--------+
-| IT         | Jim      | 90000  |
-| Sales      | Henry    | 80000  |
-| IT         | Max      | 90000  |
-+------------+----------+--------+
-<strong>Explanation:</strong> Max and Jim both have the highest salary in the IT department and Henry has the highest salary in the Sales department.
++------------+----------+--------------+
+| Division   | Employee | Compensation |
++------------+----------+--------------+
+| Technology | Blake    | 135000       |
+| Marketing  | Casey    | 118000       |
+| Technology | Ellis    | 135000       |
++------------+----------+--------------+
+<strong>Explanation:</strong> Ellis and Blake both receive the maximum compensation in the Technology division and Casey receives the maximum compensation in the Marketing division.
 </pre>
