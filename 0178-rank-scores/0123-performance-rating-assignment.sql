@@ -1,3 +1,7 @@
 /* Write your PL/SQL query statement below */
 
-select score,dense_rank() over(order by score desc) as rank from Scores 
+SELECT
+    rating,
+    DENSE_RANK() OVER (ORDER BY rating DESC) AS position
+FROM evaluation
+ORDER BY rating DESC;
