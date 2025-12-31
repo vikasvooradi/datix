@@ -5,7 +5,7 @@
 <body>
 
 <h1>1. Staff Members Exceeding Supervisor Compensation</h1>
-<h3>Easy</h3><hr>
+<h3>Level : Easy</h3><hr>
 <p>Database Schema</p>
 <p>Table: Personnel</p>
 
