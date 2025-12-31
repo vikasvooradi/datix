@@ -82,27 +82,77 @@
 | 502         | Linda Rodriguez  | 11.29             | 13.33              | 2.05                      |
 +-------------+------------------+-------------------+--------------------+---------------------------+
 </pre>
-<p>Explanation:</p>
-<h3>Marcus Chen (operator_id = 501):</h3>
-<p>Initial period journeys (Jan-Jun): Mar 8 (185.7/15.8 = 11.75), Apr 22 (295.3/24.1 = 12.25)</p>
-<p>Initial period average efficiency: (11.75 + 12.25) / 2 = 11.88</p>
-<p>Latter period journeys (Jul-Dec): Sep 14 (220.6/16.2 = 13.62), Oct 28 (265.4/18.3 = 14.50)</p>
-<p>Latter period average efficiency: (13.62 + 14.50) / 2 = 13.86</p>
-<p>Efficiency enhancement: 13.86 - 11.88 = 1.98</p>
 
-<br>  
-<h3>Linda Rodriguez (operator_id = 502):</h3>
-<p>Initial period journeys: Feb 5 (147.8/13.2 = 11.20), May 19 (368.5/32.4 = 11.37)</p>
-<p>Initial period average efficiency: (11.20 + 11.37) / 2 = 10.56</p>
-<p>Latter period journeys: Nov 7 (294.7/22.1 = 13.33)</p>
-<p>Latter period average efficiency: 13.33</p>
-<p>Efficiency enhancement: 13.33 - 10.56 = 2.77 (rounded to 2 decimal places)</p>
+<h2>Explanation</h2>
 
-<br>
-<h3>Operators not included:</h3>
-<p>James Anderson (operator_id = 503): Has journeys exclusively in initial period (Apr, Jun)</p>
-<p>Sarah Martinez (operator_id = 504): Has journeys exclusively in latter period (Aug, Dec)</p>
-<p>Robert Kim (operator_id = 505): Has journeys exclusively in initial period (Mar)</p>
-<p>The output dataset is arranged by efficiency enhancement in descending order followed by name in ascending order.</p>
-</body>
-</html>
+<h3>Marcus Chen (operator_id = 501)</h3>
+
+<p>
+<strong>Initial period journeys (Jan–Jun):</strong><br>
+Mar 8: 185.7 ÷ 15.8 = 11.75<br>
+Apr 22: 295.3 ÷ 24.1 = 12.25
+</p>
+
+<p>
+<strong>Initial period average efficiency:</strong><br>
+(11.75 + 12.25) ÷ 2 = <strong>12.00</strong>
+</p>
+
+<p>
+<strong>Latter period journeys (Jul–Dec):</strong><br>
+Sep 14: 220.6 ÷ 16.2 = 13.62<br>
+Oct 28: 265.4 ÷ 18.3 = 14.50
+</p>
+
+<p>
+<strong>Latter period average efficiency:</strong><br>
+(13.62 + 14.50) ÷ 2 = <strong>14.06</strong>
+</p>
+
+<p>
+<strong>Efficiency enhancement:</strong><br>
+14.06 − 12.00 = <strong>2.06</strong>
+</p>
+
+<hr>
+
+<h3>Linda Rodriguez (operator_id = 502)</h3>
+
+<p>
+<strong>Initial period journeys:</strong><br>
+Feb 5: 147.8 ÷ 13.2 = 11.20<br>
+May 19: 368.5 ÷ 32.4 = 11.37
+</p>
+
+<p>
+<strong>Initial period average efficiency:</strong><br>
+(11.20 + 11.37) ÷ 2 = <strong>11.29</strong>
+</p>
+
+<p>
+<strong>Latter period journeys:</strong><br>
+Nov 7: 294.7 ÷ 22.1 = 13.33
+</p>
+
+<p>
+<strong>Latter period average efficiency:</strong><br>
+<strong>13.33</strong>
+</p>
+
+<p>
+<strong>Efficiency enhancement:</strong><br>
+13.33 − 11.29 = <strong>2.05</strong>
+</p>
+
+<hr>
+
+<h3>Operators Not Included</h3>
+<ul>
+    <li>James Anderson (operator_id = 503): Journeys only in the initial period (Apr, Jun)</li>
+    <li>Sarah Martinez (operator_id = 504): Journeys only in the latter period (Aug, Dec)</li>
+    <li>Robert Kim (operator_id = 505): Journeys only in the initial period (Mar)</li>
+</ul>
+
+<p>
+The output dataset is arranged by efficiency enhancement in descending order, followed by operator name in ascending order.
+</p>
