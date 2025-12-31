@@ -5,7 +5,7 @@
 <body>
 <h1>3. Identify Operators with Enhanced Performance Metrics</h1>
 <h3>Medium</h3><hr>
-<h2>SQL Database Definition</h2>
+<p>Database Schema</p>
 <p>Database Schema</p>
 <p>Table: operators</p>
 <pre>
@@ -156,3 +156,5 @@ Nov 7: 294.7 ÷ 22.1 = 13.33
 <p>
 The output dataset is arranged by efficiency enhancement in descending order, followed by operator name in ascending order.
 </p>
+
+<br>
