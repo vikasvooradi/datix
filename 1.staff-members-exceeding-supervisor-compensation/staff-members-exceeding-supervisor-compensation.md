@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>1. Staff Members Exceeding Supervisor Compensation</title>
 </head>
 <body>
 
