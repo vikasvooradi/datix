@@ -1,137 +1,222 @@
-<h2><a href="https://leetcode.com/problems/find-consistently-improving-employees">3921. Find Consistently Improving Employees</a></h2><h3>Medium</h3><hr><p>Table: <code>employees</code></p>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h1>7294. Identify Personnel with Progressive Performance Growth</h1>
+
+<h3>Medium</h3><hr>
+<p>SQL Schema</p>
+
+<h2>Table: personnel</h2>
 
 <pre>
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
-| employee_id | int     |
-| name        | varchar |
+| staff_id    | int     |
+| full_name   | varchar |
 +-------------+---------+
-employee_id is the unique identifier for this table.
-Each row contains information about an employee.
 </pre>
 
-<p>Table: <code>performance_reviews</code></p>
+<p>staff_id serves as the primary key for this table.</p>
+<p>Each record contains details about a staff member.</p>
+
+<h2>Table: evaluation_records</h2>
 
 <pre>
-+-------------+------+
-| Column Name | Type |
-+-------------+------+
-| review_id   | int  |
-| employee_id | int  |
-| review_date | date |
-| rating      | int  |
-+-------------+------+
-review_id is the unique identifier for this table.
-Each row represents a performance review for an employee. The rating is on a scale of 1-5 where 5 is excellent and 1 is poor.
++------------------+------+
+| Column Name      | Type |
++------------------+------+
+| evaluation_id    | int  |
+| staff_id         | int  |
+| assessment_date  | date |
+| score            | int  |
++------------------+------+
 </pre>
 
-<p>Write a solution to find employees who have consistently improved their performance over <strong>their last three reviews</strong>.</p>
+<p>evaluation_id serves as the primary key for this table.</p>
+<p>Each record captures a performance evaluation for a staff member. Scores range from 1 to 5, with 5 representing outstanding performance and 1 indicating underperformance.</p>
 
+<p>Compose a query to identify staff members whose performance has demonstrated continuous upward progression across their three most recent evaluations.</p>
+
+<p>A staff member must possess a minimum of 3 evaluations to qualify for consideration</p>
+<p>The three most recent evaluations must exhibit strictly ascending scores (each subsequent assessment exceeding the prior one)</p>
+<p>Utilize the three latest evaluations determined by assessment_date for each staff member</p>
+<p>Compute the growth_metric as the numerical difference between the most recent score and the oldest score within the latest 3 evaluations</p>
+
+<p>Present the result set sorted by growth_metric in descending sequence, followed by full_name in ascending sequence.</p>
+
+<p>The result format is demonstrated in the example below.</p>
+
+<h2>Example:</h2>
+
+<p>Input:</p>
+
+<p>personnel table:</p>
+
+<pre>
++----------+-------------------+
+| staff_id | full_name         |
++----------+-------------------+
+| 203      | Marcus Chen       |
+| 417      | Sofia Rodriguez   |
+| 528      | Liam O'Connor     |
+| 635      | Priya Patel       |
+| 749      | James Anderson    |
++----------+-------------------+
+</pre>
+
+<p>evaluation_records table:</p>
+
+<pre>
++---------------+----------+-----------------+-------+
+| evaluation_id | staff_id | assessment_date | score |
++---------------+----------+-----------------+-------+
+| 891           | 203      | 2023-02-08      | 1     |
+| 892           | 203      | 2023-05-12      | 2     |
+| 893           | 203      | 2023-08-19      | 3     |
+| 894           | 203      | 2023-11-23      | 4     |
+| 895           | 417      | 2023-03-14      | 2     |
+| 896           | 417      | 2023-06-18      | 1     |
+| 897           | 417      | 2023-09-22      | 3     |
+| 898           | 417      | 2023-12-05      | 4     |
+| 899           | 528      | 2023-01-25      | 2     |
+| 900           | 528      | 2023-04-29      | 3     |
+| 901           | 528      | 2023-07-31      | 4     |
+| 902           | 528      | 2023-10-28      | 5     |
+| 903           | 635      | 2023-02-17      | 3     |
+| 904           | 635      | 2023-05-21      | 3     |
+| 905           | 635      | 2023-08-24      | 3     |
+| 906           | 749      | 2023-03-06      | 4     |
+| 907           | 749      | 2023-06-09      | 3     |
++---------------+----------+-----------------+-------+
+</pre>
+
+<p>Output:</p>
+
+<pre>
++----------+-------------------+---------------+
+| staff_id | full_name         | growth_metric |
++----------+-------------------+---------------+
+| 417      | Sofia Rodriguez   | 3             |
+| 528      | Liam O'Connor     | 2             |
+| 203      | Marcus Chen       | 2             |
++----------+-------------------+---------------+
+</pre>
+
+<p>Explanation:</p>
+
+<p><strong>Marcus Chen (staff_id = 203):</strong></p>
 <ul>
-	<li>An employee must have <strong>at least </strong><code>3</code><strong> review</strong> to be considered</li>
-	<li>The employee&#39;s <strong>last </strong><code>3</code><strong> reviews</strong> must show <strong>strictly increasing ratings</strong> (each review better than the previous)</li>
-	<li>Use the most recent <code>3</code> reviews based on <code>review_date</code> for each employee</li>
-	<li>Calculate the <strong>improvement score</strong> as the difference between the latest rating and the earliest rating among the last <code>3</code> reviews</li>
+<li>Total evaluations: 4</li>
+<li>All evaluation dates and scores:
+  <ul>
+    <li>2023-02-08: score = 1</li>
+    <li>2023-05-12: score = 2</li>
+    <li>2023-08-19: score = 3</li>
+    <li>2023-11-23: score = 4</li>
+  </ul>
+</li>
+<li>Latest 3 evaluations (by assessment_date):
+  <ul>
+    <li>1st oldest: 2023-05-12 with score = 2</li>
+    <li>2nd: 2023-08-19 with score = 3</li>
+    <li>3rd most recent: 2023-11-23 with score = 4</li>
+  </ul>
+</li>
+<li>Checking strict progression: 2 < 3 < 4 ✓ (strictly increasing)</li>
+<li>Growth metric calculation: 4 - 2 = 2</li>
+<li><strong>Result: INCLUDED</strong></li>
 </ul>
 
-<p>Return <em>the result table ordered by <strong>improvement score</strong> in <strong>descending</strong> order, then by <strong>name</strong> in <strong>ascending</strong> order</em>.</p>
-
-<p>The result format is in the following example.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong></p>
-
-<p>employees table:</p>
-
-<pre class="example-io">
-+-------------+----------------+
-| employee_id | name           |
-+-------------+----------------+
-| 1           | Alice Johnson  |
-| 2           | Bob Smith      |
-| 3           | Carol Davis    |
-| 4           | David Wilson   |
-| 5           | Emma Brown     |
-+-------------+----------------+
-</pre>
-
-<p>performance_reviews table:</p>
-
-<pre class="example-io">
-+-----------+-------------+-------------+--------+
-| review_id | employee_id | review_date | rating |
-+-----------+-------------+-------------+--------+
-| 1         | 1           | 2023-01-15  | 2      |
-| 2         | 1           | 2023-04-15  | 3      |
-| 3         | 1           | 2023-07-15  | 4      |
-| 4         | 1           | 2023-10-15  | 5      |
-| 5         | 2           | 2023-02-01  | 3      |
-| 6         | 2           | 2023-05-01  | 2      |
-| 7         | 2           | 2023-08-01  | 4      |
-| 8         | 2           | 2023-11-01  | 5      |
-| 9         | 3           | 2023-03-10  | 1      |
-| 10        | 3           | 2023-06-10  | 2      |
-| 11        | 3           | 2023-09-10  | 3      |
-| 12        | 3           | 2023-12-10  | 4      |
-| 13        | 4           | 2023-01-20  | 4      |
-| 14        | 4           | 2023-04-20  | 4      |
-| 15        | 4           | 2023-07-20  | 4      |
-| 16        | 5           | 2023-02-15  | 3      |
-| 17        | 5           | 2023-05-15  | 2      |
-+-----------+-------------+-------------+--------+
-</pre>
-
-<p><strong>Output:</strong></p>
-
-<pre class="example-io">
-+-------------+----------------+-------------------+
-| employee_id | name           | improvement_score |
-+-------------+----------------+-------------------+
-| 2           | Bob Smith      | 3                 |
-| 1           | Alice Johnson  | 2                 |
-| 3           | Carol Davis    | 2                 |
-+-------------+----------------+-------------------+
-</pre>
-
-<p><strong>Explanation:</strong></p>
-
+<p><strong>Sofia Rodriguez (staff_id = 417):</strong></p>
 <ul>
-	<li><strong>Alice Johnson (employee_id = 1):</strong>
-
-	<ul>
-		<li>Has 4 reviews with ratings: 2, 3, 4, 5</li>
-		<li>Last 3 reviews (by date): 2023-04-15 (3), 2023-07-15 (4), 2023-10-15 (5)</li>
-		<li>Ratings are strictly increasing: 3 &rarr; 4 &rarr; 5</li>
-		<li>Improvement score: 5 - 3 = 2</li>
-	</ul>
-	</li>
-	<li><strong>Carol Davis (employee_id = 3):</strong>
-	<ul>
-		<li>Has 4 reviews with ratings: 1, 2, 3, 4</li>
-		<li>Last 3 reviews (by date): 2023-06-10 (2), 2023-09-10 (3), 2023-12-10 (4)</li>
-		<li>Ratings are strictly increasing: 2 &rarr; 3 &rarr; 4</li>
-		<li>Improvement score: 4 - 2 = 2</li>
-	</ul>
-	</li>
-	<li><strong>Bob Smith (employee_id = 2):</strong>
-	<ul>
-		<li>Has 4 reviews with ratings: 3, 2, 4, 5</li>
-		<li>Last 3 reviews (by date): 2023-05-01 (2), 2023-08-01 (4), 2023-11-01 (5)</li>
-		<li>Ratings are strictly increasing: 2 &rarr; 4 &rarr; 5</li>
-		<li>Improvement score: 5 - 2 = 3</li>
-	</ul>
-	</li>
-	<li><strong>Employees not included:</strong>
-	<ul>
-		<li>David Wilson (employee_id = 4): Last 3 reviews are all 4 (no improvement)</li>
-		<li>Emma Brown (employee_id = 5): Only has 2 reviews (needs at least 3)</li>
-	</ul>
-	</li>
+<li>Total evaluations: 4</li>
+<li>All evaluation dates and scores:
+  <ul>
+    <li>2023-03-14: score = 2</li>
+    <li>2023-06-18: score = 1</li>
+    <li>2023-09-22: score = 3</li>
+    <li>2023-12-05: score = 4</li>
+  </ul>
+</li>
+<li>Latest 3 evaluations (by assessment_date):
+  <ul>
+    <li>1st oldest: 2023-06-18 with score = 1</li>
+    <li>2nd: 2023-09-22 with score = 3</li>
+    <li>3rd most recent: 2023-12-05 with score = 4</li>
+  </ul>
+</li>
+<li>Checking strict progression: 1 < 3 < 4 ✓ (strictly increasing)</li>
+<li>Growth metric calculation: 4 - 1 = 3</li>
+<li><strong>Result: INCLUDED</strong></li>
 </ul>
 
-<p>The output table is ordered by improvement_score in descending order, then by name in ascending order.</p>
-</div>
+<p><strong>Liam O'Connor (staff_id = 528):</strong></p>
+<ul>
+<li>Total evaluations: 4</li>
+<li>All evaluation dates and scores:
+  <ul>
+    <li>2023-01-25: score = 2</li>
+    <li>2023-04-29: score = 3</li>
+    <li>2023-07-31: score = 4</li>
+    <li>2023-10-28: score = 5</li>
+  </ul>
+</li>
+<li>Latest 3 evaluations (by assessment_date):
+  <ul>
+    <li>1st oldest: 2023-04-29 with score = 3</li>
+    <li>2nd: 2023-07-31 with score = 4</li>
+    <li>3rd most recent: 2023-10-28 with score = 5</li>
+  </ul>
+</li>
+<li>Checking strict progression: 3 < 4 < 5 ✓ (strictly increasing)</li>
+<li>Growth metric calculation: 5 - 3 = 2</li>
+<li><strong>Result: INCLUDED</strong></li>
+</ul>
+
+<p><strong>Priya Patel (staff_id = 635):</strong></p>
+<ul>
+<li>Total evaluations: 3</li>
+<li>All evaluation dates and scores:
+  <ul>
+    <li>2023-02-17: score = 3</li>
+    <li>2023-05-21: score = 3</li>
+    <li>2023-08-24: score = 3</li>
+  </ul>
+</li>
+<li>Latest 3 evaluations (by assessment_date):
+  <ul>
+    <li>1st oldest: 2023-02-17 with score = 3</li>
+    <li>2nd: 2023-05-21 with score = 3</li>
+    <li>3rd most recent: 2023-08-24 with score = 3</li>
+  </ul>
+</li>
+<li>Checking strict progression: 3 = 3 = 3 ✗ (NOT strictly increasing, no progression)</li>
+<li><strong>Result: EXCLUDED (scores are equal, not increasing)</strong></li>
+</ul>
+
+<p><strong>James Anderson (staff_id = 749):</strong></p>
+<ul>
+<li>Total evaluations: 2</li>
+<li>All evaluation dates and scores:
+  <ul>
+    <li>2023-03-06: score = 4</li>
+    <li>2023-06-09: score = 3</li>
+  </ul>
+</li>
+<li>Has only 2 evaluations, but requirement is minimum of 3 evaluations</li>
+<li><strong>Result: EXCLUDED (insufficient evaluation records)</strong></li>
+</ul>
+
+<p><strong>Final Result Ordering:</strong></p>
+<ul>
+<li>Sort by growth_metric descending: Sofia Rodriguez (3), then Liam O'Connor (2) and Marcus Chen (2)</li>
+<li>For tied growth_metric values (both 2), sort by full_name ascending: "Liam O'Connor" comes before "Marcus Chen" alphabetically</li>
+<li>Final order: Sofia Rodriguez (3), Liam O'Connor (2), Marcus Chen (2)</li>
+</ul>
+
+</body>
+</html>
